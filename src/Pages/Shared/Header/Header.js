@@ -67,7 +67,7 @@ const Header = () => {
           <ListItemText > <Link className={listItem} to="/home">Home</Link></ListItemText>
         </ListItem>
         <ListItem button >
-          <ListItemText > <Link className={listItem} to="/product">Product</Link></ListItemText>
+          <ListItemText > <Link className={listItem} to="/product">Products</Link></ListItemText>
         </ListItem>
         <ListItem button >
           <ListItemText > <Link className={listItem} to="/about">About</Link></ListItemText>
@@ -93,26 +93,32 @@ const Header = () => {
             ><MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={navLogo}>
-              News
+              Logo
             </Typography>
             <Box className={navLink} sx={{ flexGrow: 1 }}>
               <Link className={navItem} to="/home"><Button color="inherit">Home</Button></Link>
-              <Link className={navItem} to="/product"><Button color="inherit">Product</Button></Link>
+              <Link className={navItem} to="/product"><Button color="inherit">Products</Button></Link>
               <Link className={navItem} to="/About"><Button color="inherit">About</Button></Link>
             </Box>
+            <Link style={{ textDecoration: 'none', color: 'white' }} to="/myorder">
+              <Button color="inherit">My Order</Button>
+            </Link>
+            <Link style={{ textDecoration: 'none', color: 'white' }} to="/addproduct">
+              <Button color="inherit">Add product</Button>
+            </Link>
             {
-                user?.email ?
-                  <Box>
-                    <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
-                      <Button color="inherit">Dashboard</Button>
-                    </Link>
-                    <Button onClick={logout} color="inherit">Logout</Button>
-                  </Box>
-                  :
-                  <Link style={{ textDecoration: 'none', color: 'white' }} to="/signin">
-                    <Button color="inherit">Login</Button>
+              user?.email ?
+                <Box>
+                  <Link style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+                    <Button color="inherit">Dashboard</Button>
                   </Link>
-              }
+                  <Button onClick={logout} color="inherit">Logout</Button>
+                </Box>
+                :
+                <Link style={{ textDecoration: 'none', color: 'white' }} to="/signin">
+                  <Button color="inherit">Login</Button>
+                </Link>
+            }
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -140,7 +146,7 @@ const Header = () => {
             >
               <MenuItem >Profile</MenuItem>
               <MenuItem >My account</MenuItem>
-             
+
             </Menu>
 
           </Toolbar>

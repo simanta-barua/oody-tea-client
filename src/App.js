@@ -9,8 +9,10 @@ import About from './Pages/About/About';
 import PrivateRoute from './Pages/Athuntication/PrivateRoute/PrivateRoute';
 import Registration from './Pages/Athuntication/Registration/Registration';
 import SignIn from './Pages/Athuntication/SignIn/SignIn';
+import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import Dashboard from './Pages/Dashboard/DashboardHome/DashboardHome';
 import Home from './Pages/Home/Home';
+import MyOrder from './Pages/MyOrder/MyOrder';
 import Product from './Pages/Product/Product';
 import Header from './Pages/Shared/Header/Header';
 
@@ -28,6 +30,9 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Registration} />
+          <Route path="/myorder" component={MyOrder} />
+          <Route path="/addproduct" component={AddProduct} />
+
           <PrivateRoute path="/dashboard" component={Dashboard} />
 
 
