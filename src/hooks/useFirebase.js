@@ -48,7 +48,7 @@ const useFirebase = () => {
                 history.replace(destination);
                 setAuthError('');
                 console.log(email);
-                
+
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -65,6 +65,7 @@ const useFirebase = () => {
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
+                sessionStorage.setItem("email", result.user.email);
             }).catch((error) => {
                 setAuthError(error.message);
             }).finally(() => setIsLoading(false));
@@ -88,7 +89,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`https://stark-caverns-04377.herokuapp.com/users/${user.email}`)
+        fetch(`/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -105,7 +106,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://stark-caverns-04377.herokuapp.com/users', {
+        fetch('/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

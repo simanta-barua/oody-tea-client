@@ -20,7 +20,7 @@ const Product = () => {
     <>
       <Box sx={{ flexGrow: 1, mt: 5 }}>
         <Typography variant="h4" sx={{ mb: 5 }}>All product</Typography>
-        <Container>
+        <Container  maxWidth="xl">
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
               products.map(product => <SingleProduct

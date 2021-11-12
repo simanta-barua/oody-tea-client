@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import "./AddProduct.css";
 
 const AddProduct = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const {register,handleSubmit,formState: { errors }} = useForm();
     const onSubmit = (data) => {
         fetch("http://localhost:5000/addProduct", {
             method: "POST",

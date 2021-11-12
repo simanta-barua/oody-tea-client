@@ -1,25 +1,18 @@
-import { dividerClasses, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { useParams } from "react-router";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 
 
 const ProductDetails = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data) => {
-        console.log(data);
-
-    }
+    const email = sessionStorage.getItem("email")
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
@@ -29,8 +22,17 @@ const ProductDetails = () => {
             .then(data => setProduct(data)
             )
     }, []);
-    console.log(product);
-
+    const onSubmit = (data) => {
+        data.email = email;
+        fetch("http://localhost:5000/confirmOrder", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
+        console.log(data);
+    }
     return (
         <>
             <Box sx={{ flexGrow: 1, m: 5 }}>
@@ -38,7 +40,7 @@ const ProductDetails = () => {
                     <Grid item xs={8}>
                         <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Product Details</Typography>
                         <Card >
-                           <img src={product?.img} alt="" />
+                            <img src={product?.img} alt="" />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {product?.name}

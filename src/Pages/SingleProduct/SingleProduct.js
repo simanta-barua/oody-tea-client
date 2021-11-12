@@ -8,12 +8,12 @@ const SingleProduct = (props) => {
     const { _id, name, img } = props.product
     return (
         <>
-            <Grid item xs={2} sm={4} md={3} >
+            <Grid item xs={12} sm={4} md={3} >
                 <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia
                             component="img"
-                            height="140"
+                            height="240"
                             image={img}
                             alt="green iguana"
                         />
@@ -29,7 +29,7 @@ const SingleProduct = (props) => {
                     </CardActionArea>
                     <CardActions>
                         <Link to={`/details/${_id}`}> <Button size="small" color="primary">
-                            Share
+                            Add to Cart
                         </Button>
                         </Link>
                     </CardActions>
