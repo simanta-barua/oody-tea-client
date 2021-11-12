@@ -1,24 +1,26 @@
 import { dividerClasses, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import "./AddProduct.css";
 
 const AddProduct = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
+        fetch("http://localhost:5000/addProduct", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => console.log(result));
         console.log(data);
-        
-    };
 
+    };
 
     return (
         <>
-            <Typography variant='h4' sx={{textAlign:"center", p: "5"}}> Add Product</Typography>
+            <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Add Product</Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="productName">Product Name</label>
                 <input

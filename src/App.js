@@ -14,6 +14,7 @@ import Dashboard from './Pages/Dashboard/DashboardHome/DashboardHome';
 import Home from './Pages/Home/Home';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import Product from './Pages/Product/Product';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Header from './Pages/Shared/Header/Header';
 
 
@@ -31,11 +32,9 @@ const App = () => {
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Registration} />
           <Route path="/myorder" component={MyOrder} />
+          <Route path="/details/:productId" component={ProductDetails} />
           <Route path="/addproduct" component={AddProduct} />
-
           <PrivateRoute path="/dashboard" component={Dashboard} />
-
-
         </Switch>
       </Router>
     </AuthProvider>
