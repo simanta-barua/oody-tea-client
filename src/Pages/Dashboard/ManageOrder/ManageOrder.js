@@ -21,7 +21,7 @@ const ManageOrder = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(` https://stormy-refuge-07494.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(result => setMyOrders(result))
     }, []);
@@ -35,7 +35,7 @@ const ManageOrder = () => {
         console.log(id);
         const proceed = window.confirm("Are you sure , you want to delete")
         if (proceed) {
-            const url = `http://localhost:5000/deleteOrder/${id}`
+            const url = ` https://stormy-refuge-07494.herokuapp.com/deleteOrder/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -51,7 +51,7 @@ const ManageOrder = () => {
     }
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(` https://stormy-refuge-07494.herokuapp.com/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),

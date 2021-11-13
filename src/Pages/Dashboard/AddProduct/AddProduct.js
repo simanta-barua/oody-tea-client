@@ -7,7 +7,7 @@ import "./AddProduct.css";
 const AddProduct = () => {
     const {register,handleSubmit,formState: { errors }} = useForm();
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/addProduct", {
+        fetch(" https://stormy-refuge-07494.herokuapp.com/addProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

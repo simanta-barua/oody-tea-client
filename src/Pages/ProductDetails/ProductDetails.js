@@ -18,7 +18,7 @@ const ProductDetails = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/SingleProduct/${productId}`;
+        const url = `https://stormy-refuge-07494.herokuapp.com/SingleProduct/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data)
@@ -28,7 +28,7 @@ const ProductDetails = () => {
         data.email = email;
         data.status = "pending";
 
-        fetch("http://localhost:5000/confirmOrder", {
+        fetch("https://stormy-refuge-07494.herokuapp.com/confirmOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
