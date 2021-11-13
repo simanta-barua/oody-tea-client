@@ -26,8 +26,6 @@ const ManageOrder = () => {
             .then(result => setMyOrders(result))
     }, []);
     const [status, setStatus] = useState('');
-
-
     const handleChange = (event) => {
         setStatus(event.target.value);
     };
@@ -53,11 +51,17 @@ const ManageOrder = () => {
     }
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id})`, {
+        fetch(`http://localhost:5000/updateStatus/${id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status }),
-        });
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    alert("Update success");
+                }
+            })
         console.log(id);
 
     }
