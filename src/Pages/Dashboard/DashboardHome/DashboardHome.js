@@ -19,18 +19,13 @@ import {
 import ProductTotal from '../ProductTotal/ProductTotal';
 import AddProduct from '../AddProduct/AddProduct';
 import { AppBar, ListItem } from '@mui/material';
-
-
-
+import ManageOrder from '../ManageOrder/ManageOrder';
+import ManageProduct from '../ManageProduct/ManageProduct';
+import OrdersStatus from '../OrdersStatus/OrdersStatus';
 
 
 const drawerWidth = 240;
-
-
-
-
 const Dashboard = () => {
-    const theme = useTheme();
     const { path, url } = useRouteMatch();
     return (
         <>
@@ -42,7 +37,7 @@ const Dashboard = () => {
                 >
                     <Toolbar>
                         <Typography variant="h6" noWrap component="div">
-                            Permanent drawer
+                            Dash Board
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -66,8 +61,17 @@ const Dashboard = () => {
                         </ListItem>
                         <ListItem button >
                             <Link to={`${url}/addproduct`}>AddProduct</Link>
-
                         </ListItem>
+                        <ListItem button >
+                            <Link to={`${url}/manageproduct`}>Manage Product</Link>
+                        </ListItem>
+                        <ListItem button >
+                            <Link to={`${url}/manageorders`}>Manage Orders</Link>
+                        </ListItem>
+                        <ListItem button >
+                            <Link to={`${url}/ordersstatus`}> Orders Status</Link>
+                        </ListItem>
+
                     </List>
                     <Divider />
                 </Drawer>
@@ -82,6 +86,15 @@ const Dashboard = () => {
                         </Route>
                         <Route path={`${path}/addproduct`}>
                             <AddProduct />
+                        </Route>
+                        <Route path={`${path}/manageproduct`}>
+                            <ManageProduct />
+                        </Route>
+                        <Route path={`${path}/manageorders`}>
+                            <ManageOrder />
+                        </Route>
+                        <Route path={`${path}/ordersstatus`}>
+                            <OrdersStatus />
                         </Route>
                     </Switch>
                 </Box>

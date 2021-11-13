@@ -8,11 +8,13 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-
+import useAuth from "../../hooks/useAuth";
 
 const ProductDetails = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const email = sessionStorage.getItem("email")
+    const { user } = useAuth();
+    const email = user?.email;
+
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     useEffect(() => {
@@ -24,6 +26,8 @@ const ProductDetails = () => {
     }, []);
     const onSubmit = (data) => {
         data.email = email;
+        data.status = "pending";
+
         fetch("http://localhost:5000/confirmOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -61,7 +65,7 @@ const ProductDetails = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <label htmlFor="productName">Product Name</label>
                             <input
-                                defaultValue={""}
+                                defaultValue={product?.name}
                                 placeholder="Product Name"
                                 {...register("productName")}
                             />
