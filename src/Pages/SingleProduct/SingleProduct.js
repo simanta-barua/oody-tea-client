@@ -4,11 +4,12 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { Button, Card, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
+
 const SingleProduct = (props) => {
-    const { _id, name, img } = props.product
+    const { _id, name, img } = props?.product
     return (
         <>
-            <Grid item xs={12} sm={4} md={3} >
+            <Grid item xs={12} sm={6} md={4} lg={3} >
                 <Card sx={{ maxWidth: 345 }}>
                     <CardActionArea>
                         <CardMedia

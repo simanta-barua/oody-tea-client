@@ -15,7 +15,7 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import { AccountCircle } from '@mui/icons-material';
 import useAuth from '../../../hooks/useAuth';
-
+import logo from '../../../assets/logo.png'
 const Header = () => {
   const { user, logout } = useAuth();
   const [state, setState] = React.useState(false);
@@ -93,7 +93,7 @@ const Header = () => {
             ><MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} className={navLogo}>
-              Logo
+              <img src={logo} alt="" />
             </Typography>
             <Box className={navLink} sx={{ flexGrow: 1 }}>
               <Link className={navItem} to="/home"><Button color="inherit">Home</Button></Link>
