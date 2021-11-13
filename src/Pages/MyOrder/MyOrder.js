@@ -4,8 +4,9 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
-import { Container } from '@mui/material';
-
+import { Button, Container } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import useAuth from '../../hooks/useAuth';
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
@@ -13,14 +14,35 @@ const Img = styled('img')({
     maxHeight: '100%',
 });
 const MyOrder = () => {
-    const email = sessionStorage.getItem("email");
+    const { user } = useAuth();
+    const email = user?.email;
     const [myOrders, setMyOrders] = useState();
+    console.log(myOrders);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myOrders/${email}`)
             .then(res => res.json())
             .then(result => setMyOrders(result))
-    }, [])
+    }, []);
+
+    const handleDelete = (id) => {
+        console.log(id);
+        const proceed = window.confirm("Are you sure , you want to delete")
+        if (proceed) {
+            const url = `http://localhost:5000/deleteOrder/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert("Delete success");
+                        const remainingUser = myOrders.filter(user => user._id !== id);
+                        setMyOrders(remainingUser);
+                    }
+                });
+        }
+    }
     return (
         <Container>
             {
@@ -46,17 +68,22 @@ const MyOrder = () => {
                                         </Typography>
                                     </Grid>
                                     <Grid item>
-                                        <Typography sx={{ cursor: 'pointer', textAlign: "right" }} variant="body2">
-                                            Remove
-                                        </Typography>
+
                                     </Grid>
                                 </Grid>
+
                                 <Grid item>
                                     <Typography variant="subtitle1" component="div">
                                         $19.00
                                     </Typography>
                                 </Grid>
+                                <Grid item>
+                                    <Button onClick={() => handleDelete(myOrder?._id)} variant="outlined" sx={{ mt: 6 }} color="error" startIcon={<DeleteIcon />}>
+                                        Delete
+                                    </Button>
+                                </Grid>
                             </Grid>
+
                         </Grid>
                     </Paper>
                 )
