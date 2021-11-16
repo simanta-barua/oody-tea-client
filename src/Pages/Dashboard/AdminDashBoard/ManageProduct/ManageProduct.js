@@ -13,6 +13,24 @@ const ManageProduct = () => {
     const [products] = useFetch();
     console.log(products);
 
+    const handleDelete = (id) => {
+        console.log(id);
+        const proceed = window.confirm("Are you sure , you want to delete")
+        if (proceed) {
+            const url = `https://stormy-refuge-07494.herokuapp.com/deleteProduct/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        // alert("Delete success");
+                        // const remainingUser = myOrders.filter(user => user._id !== id);
+                        // setMyOrders(remainingUser);
+                    }
+                });
+        }
+    }
 
     return (
         <>

@@ -1,15 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCbC32GHaudm3foo_yUy1WU8xz77K8wW-g",
-
-    authDomain: "ooty-tea.firebaseapp.com",
-
-    projectId: "ooty-tea",
-
-    storageBucket: "ooty-tea.appspot.com",
-
-    messagingSenderId: "19644591824",
-
-    appId: "1:19644591824:web:932b568a18d86e577778d5"
+    apiKey: process.env.REACT_APP_FIRE_API_KEY,
+    authDomain: process.env.REACT_APP_FIRE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIRE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIRE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIRE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIRE_APPID
 
 };
 export default firebaseConfig;
