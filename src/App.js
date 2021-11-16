@@ -18,6 +18,7 @@ import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
 import DashboardAdmin from './Pages/Dashboard/AdminDashBoard/DashboardHome/DashboardHome';
 import DashboardClient from './Pages/Dashboard/ClientDashBoard/DashboardHomeClient/DashboardHomeClient';
+import AdminRoute from './Pages/Athuntication/AdminRoute/AdminRoute';
 
 
 
@@ -35,9 +36,9 @@ const App = () => {
           <Route path="/register" component={Registration} />
           <Route path="/myorder" component={MyOrder} />
           <Route path="/details/:productId" component={ProductDetails} />
-          <PrivateRoute path="/dashboardAdmin" component={DashboardAdmin} />
+          <AdminRoute path="/dashboardAdmin" component={DashboardAdmin} />
           <PrivateRoute path="/dashboard" component={DashboardClient} />
-          <PrivateRoute path="/*" component={NotFoundPage} />
+          <Route path="/*" component={NotFoundPage} />
         </Switch>
         <Footer />
       </Router>
