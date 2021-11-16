@@ -20,14 +20,22 @@ const Product = () => {
     <>
       <Box sx={{ flexGrow: 1, mt: 5 }}>
         <Typography variant="h4" sx={{ mb: 5 }}>All product</Typography>
-        <Container  maxWidth="xl">
+        <Container maxWidth="xl">
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+
             {
-              products.map(product => <SingleProduct
-                key={product._id}
-                product={product}
-              />)
+              products.map(product => {
+                return (
+                  <Grid item xs={12} sm={6} md={4} lg={3} >
+                    <SingleProduct
+                      key={product._id}
+                      product={product}
+                    />
+                  </Grid>
+                )
+              })
             }
+
           </Grid>
         </Container>
       </Box>

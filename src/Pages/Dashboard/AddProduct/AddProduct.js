@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import "./AddProduct.css";
 
 const AddProduct = () => {
-    const {register,handleSubmit,formState: { errors }} = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-        fetch(" https://stormy-refuge-07494.herokuapp.com/addProduct", {
+        fetch("https://stormy-refuge-07494.herokuapp.com/addProduct", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

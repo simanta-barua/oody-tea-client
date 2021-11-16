@@ -59,7 +59,7 @@ const Header = () => {
 
   const list = (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 150 }}
     >
       <Divider />
       <List>
@@ -102,9 +102,6 @@ const Header = () => {
             </Box>
             <Link style={{ textDecoration: 'none', color: 'white' }} to="/myorder">
               <Button color="inherit">My Order</Button>
-            </Link>
-            <Link style={{ textDecoration: 'none', color: 'white' }} to="/addproduct">
-              <Button color="inherit">Add product</Button>
             </Link>
             {
               user?.email ?

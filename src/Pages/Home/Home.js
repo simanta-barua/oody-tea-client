@@ -1,7 +1,8 @@
 import React from 'react';
-import Reviews from './Reviews/Reviews';
-import BannerSlider from './Slider/BannerSlider';
-import MainSlider from './Slider/MainSlider';
+import BannerSlider from './Slider/BannerSlider/BannerSlider';
+import MainSlider from './Slider/ProductSlider/MainSlider';
+import Reviews from './Slider/Reviews/Reviews';
+
 
 
 const Home = () => {
