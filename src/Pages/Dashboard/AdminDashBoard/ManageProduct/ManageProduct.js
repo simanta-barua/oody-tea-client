@@ -1,5 +1,4 @@
 import React from 'react';
-import useFetch from '../../../hooks/useFetch';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,6 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import useFetch from '../../../../hooks/useFetch';
 const ManageProduct = () => {
     const [products] = useFetch();
     console.log(products);

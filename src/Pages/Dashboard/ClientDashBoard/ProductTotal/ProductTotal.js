@@ -3,7 +3,7 @@ import React from 'react';
 const ProductTotal = () => {
     return (
         <div>
-            h1  
+            prodcut totoal
         </div>
     );
 };

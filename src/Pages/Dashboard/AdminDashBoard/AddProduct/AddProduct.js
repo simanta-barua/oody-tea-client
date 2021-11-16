@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import "./AddProduct.css";
-
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {

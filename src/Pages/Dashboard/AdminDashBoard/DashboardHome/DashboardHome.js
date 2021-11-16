@@ -7,7 +7,7 @@ import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-
+import { AppBar, ListItem } from '@mui/material';
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,12 +16,12 @@ import {
     useParams,
     useRouteMatch
 } from "react-router-dom";
-import ProductTotal from '../ProductTotal/ProductTotal';
-import AddProduct from '../AddProduct/AddProduct';
-import { AppBar, ListItem } from '@mui/material';
-import ManageOrder from '../ManageOrder/ManageOrder';
+import ProductTotal from '../../ClientDashBoard/ProductTotal/ProductTotal';
 import ManageProduct from '../ManageProduct/ManageProduct';
-import OrdersStatus from '../OrdersStatus/OrdersStatus';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddProduct from '../AddProduct/AddProduct';
+import ManageOrder from '../ManageOrder/ManageOrder';
+
 
 
 const drawerWidth = 240;
@@ -57,7 +57,7 @@ const Dashboard = () => {
                     <Divider />
                     <List>
                         <ListItem button >
-                            <Link to={`${url}`}>ProductTotal</Link>
+                            <Link to={`${url}`}>Home</Link>
                         </ListItem>
                         <ListItem button >
                             <Link to={`${url}/addproduct`}>AddProduct</Link>
@@ -69,7 +69,7 @@ const Dashboard = () => {
                             <Link to={`${url}/manageorders`}>Manage Orders</Link>
                         </ListItem>
                         <ListItem button >
-                            <Link to={`${url}/ordersstatus`}> Orders Status</Link>
+                            <Link to={`${url}/makeadmin`}> Make Admin</Link>
                         </ListItem>
 
                     </List>
@@ -93,8 +93,8 @@ const Dashboard = () => {
                         <Route path={`${path}/manageorders`}>
                             <ManageOrder />
                         </Route>
-                        <Route path={`${path}/ordersstatus`}>
-                            <OrdersStatus />
+                        <Route path={`${path}/makeadmin`}>
+                            <MakeAdmin />
                         </Route>
                     </Switch>
                 </Box>
