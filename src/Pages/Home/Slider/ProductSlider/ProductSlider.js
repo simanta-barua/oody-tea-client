@@ -13,7 +13,7 @@ import SingleProduct from '../../../SingleProduct/SingleProduct';
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
-const Reviews = () => {
+const ProductSlider = () => {
 
     const [products] = useFetch();
     let slicedproducts = products.slice(0, 8)
@@ -40,4 +40,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+export default ProductSlider;

@@ -1,28 +1,22 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
 import "./styles.css";
-
-
+import SwiperCore, {
+    Navigation
+} from 'swiper';
+SwiperCore.use([Navigation]);
 const BannerSlider = () => {
+
     return (
-        <div>
-            <>
-                <Swiper navigation={true} className="bannerSwiper">
-                    <SwiperSlide>
-                        <h2>Green tea</h2>
-                        <img src="https://i.ibb.co/GFkFX00/slider3.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/SVR08Qd/slider1.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/fSygL6Y/slider4.jpg" alt="" /></SwiperSlide>
-                    <SwiperSlide><img src="https://i.ibb.co/JtqrwzT/slider5.jpg" alt="" /></SwiperSlide>
-                </Swiper>
-            </>
-        </div>
+        <>
+            <Swiper navigation={true} className="banner">
+                <SwiperSlide className="banner" style={{ 'background-image': 'url(https://i.ibb.co/GFkFX00/slider3.jpg)', 'background-repeat': 'no-repeat' }} >
+                    <h1> hello</h1>
+                </SwiperSlide>
+            </Swiper>
+        </>
     );
 };
-
+// https://i.ibb.co/GFkFX00/slider3.jpg
 export default BannerSlider;

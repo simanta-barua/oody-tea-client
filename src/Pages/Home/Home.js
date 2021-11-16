@@ -1,6 +1,6 @@
 import React from 'react';
 import BannerSlider from './Slider/BannerSlider/BannerSlider';
-import MainSlider from './Slider/ProductSlider/MainSlider';
+import ProductSlider from './Slider/ProductSlider/ProductSlider';
 import Reviews from './Slider/Reviews/Reviews';
 
 
@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <BannerSlider />
-            <MainSlider></MainSlider>
+           <ProductSlider/>
             <Reviews></Reviews>
         </div>
     );
