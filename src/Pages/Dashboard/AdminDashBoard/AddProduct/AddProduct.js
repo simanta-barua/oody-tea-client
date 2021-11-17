@@ -33,12 +33,19 @@ const AddProduct = () => {
                     placeholder="add product description"
                     {...register("description")}
                 />
-                <label htmlFor="date">Date</label>
+                <label htmlFor="date">Weight</label>
                 <input
                     defaultValue={""}
-                    type="date"
-                    placeholder="add product description"
-                    {...register("description")}
+                    type="text"
+                    placeholder="Weight"
+                    {...register("weight")}
+                />
+                <label htmlFor="brand">Brand</label>
+                <input
+                    defaultValue={""}
+                    type="text"
+                    placeholder="Brand"
+                    {...register("brand")}
                 />
                 <label htmlFor="image">Image</label>
                 <input

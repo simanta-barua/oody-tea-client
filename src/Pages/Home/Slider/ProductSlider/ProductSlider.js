@@ -10,6 +10,7 @@ import SwiperCore, {
 } from "swiper/core";
 import { Typography } from '@material-ui/core';
 import SingleProduct from '../../../SingleProduct/SingleProduct';
+import { Box } from '@mui/system';
 
 // install Swiper modules
 SwiperCore.use([Pagination]);
@@ -20,18 +21,20 @@ const ProductSlider = () => {
 
     return (
         <>
-            <Typography variant="h2">Reviews</Typography>
+            <Box sx={{ fontFamily: 'Monospace', fontSize: 'h6.fontSize', m: 1 }}>
+                <Typography variant="h2" >Our Future Product</Typography>
+            </Box>
             <Swiper slidesPerView={4} centeredSlides={true} spaceBetween={30} grabCursor={true} pagination={{
                 "clickable": true
             }} className="mySwiper">
                 {
                     slicedproducts.map(product => {
                         return (
-                           <SwiperSlide>
+                            <SwiperSlide>
                                 <SingleProduct
-                                key={product?._id}
-                                product={product} />
-                           </SwiperSlide>
+                                    key={product?._id}
+                                    product={product} />
+                            </SwiperSlide>
                         )
                     })
                 }

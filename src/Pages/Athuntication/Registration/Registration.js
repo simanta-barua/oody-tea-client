@@ -24,7 +24,7 @@ const Registration = () => {
     setUserData(data);
     registerUser(data.email, data.password);
     console.log(data);
-    
+
   }
   return (
     <>
@@ -67,7 +67,7 @@ const Registration = () => {
             rules={{
               required: "Password can't be empty",
               minLength: {
-                value: 8,
+                value: 6,
                 message: "Password must have at least 8 characters"
               }
             }}

@@ -17,6 +17,8 @@ const ProductDetails = () => {
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    const { productName, description, weight, image, price, brand } = product
+
     useEffect(() => {
         const url = `https://stormy-refuge-07494.herokuapp.com/SingleProduct/${productId}`;
         fetch(url)
@@ -27,6 +29,9 @@ const ProductDetails = () => {
     const onSubmit = (data) => {
         data.email = email;
         data.status = "pending";
+        data.image = image;
+        data.price = price;
+        data.productName = productName;
 
         fetch("https://stormy-refuge-07494.herokuapp.com/confirmOrder", {
             method: "POST",
@@ -44,60 +49,49 @@ const ProductDetails = () => {
                     <Grid item xs={8}>
                         <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Product Details</Typography>
                         <Card >
-                            <img src={product?.img} alt="" />
+                            <img src={image} alt="" />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                    {product?.name}
+                                <Typography gutterBottom variant="h3" component="div">
+                                    {productName}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                                    species, ranging across all continents except Antarctica
+                                <Typography variant="h5" color="text.secondary">
+                                    Details:  {description}
+                                </Typography>
+                                <Typography variant="h5" color="text.secondary">
+                                    Price: $ {price}
+                                </Typography>
+                                <Typography variant="h5" color="text.secondary">
+                                    Brand :  {brand}
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                            </CardActions>
+
                         </Card>
                     </Grid>
                     <Grid item xs={4}>
                         <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Add Product</Typography>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <label htmlFor="productName">Product Name</label>
-                            <input
-                                defaultValue={product?.name}
-                                placeholder="Product Name"
-                                {...register("productName")}
-                            />
-                            <label htmlFor="description">Description</label>
+                            <label htmlFor="name">Name</label>
                             <input
                                 defaultValue={""}
-                                placeholder="add product description"
-                                {...register("description")}
+                                type="name"
+                                placeholder="Enter Your name"
+                                {...register("name")}
                             />
-                            <label htmlFor="date">Date</label>
+                            <label htmlFor="address">Address</label>
                             <input
                                 defaultValue={""}
-                                type="date"
-                                placeholder="add product description"
-                                {...register("description")}
+                                placeholder="Address"
+                                type="address"
+                                {...register("address")}
                             />
-                            <label htmlFor="image">Image</label>
+                            <label htmlFor="quantity">Quantity</label>
                             <input
-                                defaultValue={""}
-                                placeholder="image url"
-                                type="text"
-                                {...register("image")}
-                            />
-                            <label htmlFor="price">price</label>
-                            <input
-                                defaultValue={""}
                                 placeholder="0"
-                                type="text"
-                                {...register("price", {
+                                type="number"
+                                {...register("quantity", {
                                 })}
                             />
-                            <input type="submit" value="Add Product" />
+                            <input type="submit" value="Place Order" />
                         </form>
                     </Grid>
                 </Grid>

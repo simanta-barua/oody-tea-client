@@ -5,7 +5,8 @@ import { Button, Card, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const SingleProduct = (props) => {
-    const { _id, name, img } = props?.product
+    const { _id, productName, weight, image, price, brand } = props?.product
+
     return (
         <>
             <Card sx={{ maxWidth: 345 }}>
@@ -13,16 +14,21 @@ const SingleProduct = (props) => {
                     <CardMedia
                         component="img"
                         height="240"
-                        image={img}
+                        image={image}
                         alt="green iguana"
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {name}
+                        <Typography gutterBottom variant="body1" component="div">
+                            {brand}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                        <Typography gutterBottom variant="h4" component="div">
+                            {productName}
+                        </Typography>
+                        <Typography variant="h6" color="text.secondary">
+                            <h6>Price: $ {price}</h6>
+                        </Typography>
+                        <Typography variant="h6" color="text.secondary">
+                            <h6>Weight: {weight} g {price}</h6>
                         </Typography>
                     </CardContent>
                 </CardActionArea>
