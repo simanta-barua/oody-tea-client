@@ -38,8 +38,8 @@ const MyOrder = () => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert("Delete success");
-                        const remainingUser = myOrders.filter(user => user._id !== id);
-                        setMyOrders(remainingUser);
+                        const remainingOrder = myOrders.filter(order => order._id !== id);
+                        setMyOrders(remainingOrder);
                     }
                 });
         }

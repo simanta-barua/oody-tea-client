@@ -19,7 +19,7 @@ const Reviews = () => {
 
     return (
         <>
-            <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Add Admin</Typography>
+            <Typography variant='h4' sx={{ textAlign: "center", p: "5" }}> Post Review</Typography>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="name"> Name</label>
                 <input

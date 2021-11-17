@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -10,8 +10,14 @@ import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import useFetch from '../../../../hooks/useFetch';
 const ManageProduct = () => {
-    const [products] = useFetch();
+    const [products, setProduct] = useState();
     console.log(products);
+
+    useEffect(() => {
+        fetch(`https://stormy-refuge-07494.herokuapp.com/products`)
+            .then(res => res.json())
+            .then(data => setProduct(data.products))
+    }, []);
 
     const handleDelete = (id) => {
         console.log(id);
@@ -24,9 +30,9 @@ const ManageProduct = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        // alert("Delete success");
-                        // const remainingUser = myOrders.filter(user => user._id !== id);
-                        // setMyOrders(remainingUser);
+                        alert("Delete success");
+                        const remainingProduct = products.filter(product => product._id !== id);
+                        setProduct(remainingProduct);
                     }
                 });
         }
@@ -53,10 +59,7 @@ const ManageProduct = () => {
                                 <TableCell align="right">{product.price}</TableCell>
                                 <TableCell style={{ width: '20%' }} align="right">{product.img}</TableCell>
                                 <TableCell align="center">
-                                    <Button variant="outlined" sx={{ m: 2 }} color="success" startIcon={<DeleteIcon />}>
-                                        Edit
-                                    </Button>
-                                    <Button variant="outlined" sx={{ m: 2 }} color="error" startIcon={<DeleteIcon />}>
+                                    <Button onClick={() => handleDelete(product?._id)} variant="outlined" sx={{ m: 2 }} color="error" startIcon={<DeleteIcon />}>
                                         Delete
                                     </Button>
                                 </TableCell>

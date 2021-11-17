@@ -46,8 +46,8 @@ const ManageOrder = () => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert("Delete success");
-                        const remainingUser = Orders.filter(user => user._id !== id);
-                        setOrders(remainingUser);
+                        const remainingOrder = Orders.filter(order => order._id !== id);
+                        setOrders(remainingOrder);
                     }
                 });
         }
@@ -63,6 +63,8 @@ const ManageOrder = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     alert("Update success");
+                    const remainingOrder = Orders.filter(order => order._id !== id);
+                    setOrders(remainingOrder);
                 }
             })
         console.log(id);

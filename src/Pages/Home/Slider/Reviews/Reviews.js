@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -15,8 +15,16 @@ import SingleProduct from '../../../SingleProduct/SingleProduct';
 SwiperCore.use([Pagination]);
 const Reviews = () => {
 
-    const [products] = useFetch();
-    let slicedproducts = products.slice(0, 8)
+    const url = 'https://stormy-refuge-07494.herokuapp.com/reviews'
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setReviews(data)
+            )
+    }, [])
+
 
     return (
         <>
@@ -25,13 +33,11 @@ const Reviews = () => {
                 "clickable": true
             }} className="mySwiper">
                 {
-                    slicedproducts.map(product => {
+                    reviews.map(product => {
                         return (
-                           <SwiperSlide>
-                                <SingleProduct
-                                key={product?._id}
-                                product={product} />
-                           </SwiperSlide>
+                            <SwiperSlide>
+                                <h1>Reviews</h1>
+                            </SwiperSlide>
                         )
                     })
                 }
