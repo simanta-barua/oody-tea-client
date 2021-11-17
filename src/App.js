@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import About from './Pages/About/About';
-import PrivateRoute from './Pages/Athuntication/PrivateRoute/PrivateRoute';
 import Registration from './Pages/Athuntication/Registration/Registration';
 import SignIn from './Pages/Athuntication/SignIn/SignIn';
 import Home from './Pages/Home/Home';
@@ -16,9 +15,10 @@ import Product from './Pages/Product/Product';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Footer/Footer';
-import DashboardAdmin from './Pages/Dashboard/AdminDashBoard/DashboardHome/DashboardHome';
-import DashboardClient from './Pages/Dashboard/ClientDashBoard/DashboardHomeClient/DashboardHomeClient';
+import PrivateRoute from './Pages/Athuntication/PrivateRoute/PrivateRoute';
+import DashboardAdmin from './Pages/Dashboard/AdminDashBoard/DashboardAdmin/DashboardAdmin';
 import AdminRoute from './Pages/Athuntication/AdminRoute/AdminRoute';
+import DashboardClient from './Pages/Dashboard/ClientDashBoard/DashboardHomeClient/DashboardClient';
 
 
 
@@ -30,14 +30,18 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
-          <PrivateRoute path="/product" component={Product} />
+          <Route path="/product" component={Product} />
           <Route path="/about" component={About} />
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Registration} />
           <Route path="/myorder" component={MyOrder} />
           <Route path="/details/:productId" component={ProductDetails} />
-          <AdminRoute path="/dashboardAdmin" component={DashboardAdmin} />
-          <PrivateRoute path="/dashboard" component={DashboardClient} />
+          <PrivateRoute path="/dashboard" >
+            <DashboardClient></DashboardClient>
+          </PrivateRoute>
+          <AdminRoute path="/dashboardAdmin" >
+            <DashboardAdmin />
+          </AdminRoute>
           <Route path="/*" component={NotFoundPage} />
         </Switch>
         <Footer />

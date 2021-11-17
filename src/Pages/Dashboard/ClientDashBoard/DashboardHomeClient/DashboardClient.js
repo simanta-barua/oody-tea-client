@@ -13,7 +13,6 @@ import {
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import ProductTotal from '../ProductTotal/ProductTotal';
@@ -24,7 +23,7 @@ import Reviwes from '../Reviwes/Reviwes';
 
 
 const drawerWidth = 240;
-const Dashboard = () => {
+const DashboardClient = () => {
     const { path, url } = useRouteMatch();
     return (
         <>
@@ -96,4 +95,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashboardClient;

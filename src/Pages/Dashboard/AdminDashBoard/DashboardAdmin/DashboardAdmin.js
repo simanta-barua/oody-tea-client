@@ -25,7 +25,7 @@ import ManageOrder from '../ManageOrder/ManageOrder';
 
 
 const drawerWidth = 240;
-const Dashboard = () => {
+const DashboardAdmin = () => {
     const { path, url } = useRouteMatch();
     return (
         <>
@@ -103,4 +103,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default DashboardAdmin;

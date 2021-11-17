@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import { Button, Container, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import { useForm, Controller } from "react-hook-form";
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
@@ -12,7 +9,7 @@ import './SingIn.css'
 
 const SignIn = () => {
     const [userData, setUserData] = useState({});
-    const { user, signInWithGoogle, signInUser, isLoading, authError } = useAuth();
+    const { user, signInWithGoogle, signInUser, isLoading,  authError } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
