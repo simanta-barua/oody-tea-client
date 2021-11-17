@@ -20,8 +20,6 @@ import DashboardAdmin from './Pages/Dashboard/AdminDashBoard/DashboardAdmin/Dash
 import AdminRoute from './Pages/Athuntication/AdminRoute/AdminRoute';
 import DashboardClient from './Pages/Dashboard/ClientDashBoard/DashboardHomeClient/DashboardClient';
 
-
-
 const App = () => {
   return (
     <><AuthProvider>
@@ -37,7 +35,7 @@ const App = () => {
           <Route path="/myorder" component={MyOrder} />
           <Route path="/details/:productId" component={ProductDetails} />
           <PrivateRoute path="/dashboard" >
-            <DashboardClient></DashboardClient>
+            <DashboardClient />
           </PrivateRoute>
           <AdminRoute path="/dashboardAdmin" >
             <DashboardAdmin />

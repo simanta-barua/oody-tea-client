@@ -1,4 +1,3 @@
-
 import { dividerClasses, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
@@ -44,7 +43,7 @@ const Reviews = () => {
                 <input type="submit" value="Post Review" />
             </form>
         </>
-    );
+    ); 
 }
 
 

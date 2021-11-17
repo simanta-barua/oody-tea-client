@@ -5,6 +5,12 @@
 .banner_img {
   height: 600px;
   object-fit: cover;
-background-blend-mode: color;
-background-size: contain;
+  background-blend-mode: color;
+  background-size: contain;
+}
+.bannerBody {
+  margin: 10%;
+  color: rgb(230, 223, 215);
+ 
+
 }

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,7 +17,7 @@ import {
 import ProductTotal from '../ProductTotal/ProductTotal';
 import MyOrder from '../MyOrder/MyOrder';
 import Payment from '../Payment/Payment';
-import Reviwes from '../Reviwes/Reviwes';
+import Reviwes from '../Reviews/Reviews';
 
 
 
