@@ -8,7 +8,7 @@ import useFetch from "../../../../hooks/useFetch";
 import SwiperCore, {
     Pagination,
 } from "swiper/core";
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import SingleProduct from '../../../SingleProduct/SingleProduct';
 import { Box } from '@mui/system';
 
@@ -30,11 +30,17 @@ const ProductSlider = () => {
                 {
                     slicedproducts.map(product => {
                         return (
-                            <SwiperSlide>
-                                <SingleProduct
-                                    key={product?._id}
-                                    product={product} />
-                            </SwiperSlide>
+
+
+                            <Grid item xs={2} sm={4} md={3} >
+                                <SwiperSlide>
+                                    <SingleProduct
+                                        key={product?._id}
+                                        product={product} />
+                                </SwiperSlide>
+                            </Grid>
+
+
                         )
                     })
                 }

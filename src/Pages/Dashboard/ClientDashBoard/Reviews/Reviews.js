@@ -24,9 +24,9 @@ const Reviews = () => {
                 <input
                     defaultValue={""}
                     placeholder="Name"
-                    {...register("adminName")}
+                    {...register("name")}
                 />
-                <label htmlFor="email">Wite Review</label>
+                <label htmlFor="review">Wite Review</label>
                 <input
                     defaultValue={""}
                     placeholder="Review"
