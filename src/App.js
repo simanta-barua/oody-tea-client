@@ -33,7 +33,9 @@ const App = () => {
           <Route path="/signin" component={SignIn} />
           <Route path="/register" component={Registration} />
           <Route path="/myorder" component={MyOrder} />
-          <Route path="/details/:productId" component={ProductDetails} />
+          <PrivateRoute path="/details/:productId" >
+            <ProductDetails />
+          </PrivateRoute>
           <PrivateRoute path="/dashboard" >
             <DashboardClient />
           </PrivateRoute>

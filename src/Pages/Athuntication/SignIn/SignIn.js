@@ -9,18 +9,20 @@ import './SingIn.css'
 
 const SignIn = () => {
     const [userData, setUserData] = useState({});
-    const { user, signInWithGoogle, signInUser, isLoading,  authError } = useAuth();
+    const { user, signInWithGoogle, signInUser, isLoading, authError } = useAuth();
     const location = useLocation();
     const history = useHistory();
-
+    const redirect_url = location.state?.from || '/home';
     const { control, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         setUserData(data);
         signInUser(data.email, data.password)
+        history.push(redirect_url)
     }
 
     const handleGoogleSignIn = () => {
         signInWithGoogle(location, history)
+        history.push(redirect_url)
     }
     return (
         <>
